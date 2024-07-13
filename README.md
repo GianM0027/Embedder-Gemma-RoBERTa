@@ -55,7 +55,34 @@ An extensive set of experiments has been conducted on two datasets:
 1. **Amazon Counterfactual Classification**: a binary classification task.
 2. **Emotion Classification**: a multilabel (6 labels) classification task.
 
-The configurations for the experiments were as follows:
+These configurations were essential to ensure consistency and reproducibility of results across both datasets. Below are the performance metrics obtained for each model evaluated:
+
+| **Model**           | **Amazon Counterfactual Classification (Accuracy, F1)** | **Emotion Classification (Accuracy, F1)** | **Layer Number** |
+|---------------------|---------------------------------------------------------|-------------------------------------------|------------------|
+| Roberta-Only        | (0.92358, 0.88786)                                      | (0.84130, 0.79769)                        | -                |
+| Gemma-Only          | (0.65224, 0.59531)                                      | (0.28535, 0.24303)                        | -                |
+| Full Model [1-18]   | (0.59567, 0.53944)                                      | (0.32005, 0.20509)                        | -1               |
+| Model [1-17]        | (0.73567, 0.67447)                                      | (0.29070, 0.23099)                        | -2               |
+| Model [1-16]        | (0.78910, 0.73468)                                      | (0.33010, 0.25578)                        | -3               |
+| Model [1-15]        | (0.81881, 0.75857)                                      | (0.33950, 0.27807)                        | -4               |
+| Model [1-14]        | (0.83522, 0.77633)                                      | (0.17060, 0.11551)                        | -5               |
+| Model [1-13]        | (0.82284, 0.76580)                                      | (0.35050, 0.28033)                        | -6               |
+| Model [1-12]        | (0.84746, 0.79004)                                      | (0.21150, 0.12383)                        | -7               |
+| Model [1-11]        | (0.73687, 0.66874)                                      | (0.21770, 0.17535)                        | -8               |
+| Model [1-10]        | (0.85896, 0.80996)                                      | (0.35980, 0.28138)                        | -9               |
+| Model [1-9]         | (0.82060, 0.76040)                                      | (0.33605, 0.26878)                        | -10              |
+| Model [1-8]         | (0.77179, 0.72740)                                      | (0.29690, 0.24354)                        | -11              |
+| Model [1-7]         | (0.78119, 0.71965)                                      | (0.39920, 0.32163)                        | -12              |
+| Model [1-6]         | (0.80448, 0.75166)                                      | (0.24650, 0.19516)                        | -13              |
+| Model [1-5]         | (0.85119, 0.79530)                                      | (0.39890, 0.32221)                        | -14              |
+| Model [1-4]         | (0.87493, 0.82954)                                      | (0.18935, 0.14127)                        | -15              |
+| Model [1-3]         | (0.82194, 0.76370)                                      | (0.19300, 0.13079)                        | -16              |
+| Model [1-2]         | (0.77567, 0.71621)                                      | (0.18550, 0.14802)                        | -17              |
+| Model [1]           | (0.65090, 0.58423)                                      | (0.32005, 0.20508)                        | -18              |
+
+In this table, the 'Layer Number' column specifies from which layer the output of Gemma is being extracted. Negative numbers indicate the layer count starting from the topmost layer downward. The rows labeled 'Roberta-Only' and 'Gemma-Only' serve as baseline comparisons, demonstrating the performance of the standalone models without integration.
+
+To reproduce these results, modify the first cell of the notebook to match the configuration parameters specified below:
 
 | **Parameter**  | **Amazon Counterfactual Classification** | **Emotion Classification** |
 | -------------- | ---------------------------------------- | -------------------------- |
@@ -63,35 +90,4 @@ The configurations for the experiments were as follows:
 | Epochs         | 6                                        | 5                          |
 | Batch Size     | 8                                        | 32                         |
 | Learning Rate  | 1.00E-05                                 | 1.00E-05                   |
-
-These configurations were essential to ensure consistency and reproducibility of results across both datasets. Below are the performance metrics obtained for each model evaluated:
-
-\begin{array}{|c|c|c|c|}
-\hline
-\textbf{Model} & \textbf{Amazon Counterfactual Classification (Accuracy, F1)} & \textbf{Emotion Classification (Accuracy, F1)} & \textbf{Layer Number} \\
-\hline
-\text{Roberta-Only} & (0.92358, 0.88786) & (0.84130, 0.79769) & - \\
-\text{Gemma-Only} & (0.65224, 0.59531) & (0.28535, 0.24303) & - \\
-\text{Full Model [1-18]} & (0.59567, 0.53944) & (0.32005, 0.20509) & -1 \\
-\text{Model [1-17]} & (0.73567, 0.67447) & (0.29070, 0.23099) & -2 \\
-\text{Model [1-16]} & (0.78910, 0.73468) & (0.33010, 0.25578) & -3 \\
-\text{Model [1-15]} & (0.81881, 0.75857) & (0.33950, 0.27807) & -4 \\
-\text{Model [1-14]} & (0.83522, 0.77633) & (0.17060, 0.11551) & -5 \\
-\text{Model [1-13]} & (0.82284, 0.76580) & (0.35050, 0.28033) & -6 \\
-\text{Model [1-12]} & (0.84746, 0.79004) & (0.21150, 0.12383) & -7 \\
-\text{Model [1-11]} & (0.73687, 0.66874) & (0.21770, 0.17535) & -8 \\
-\text{Model [1-10]} & (0.85896, 0.80996) & (0.35980, 0.28138) & -9 \\
-\text{Model [1-9]} & (0.82060, 0.76040) & (0.33605, 0.26878) & -10 \\
-\text{Model [1-8]} & (0.77179, 0.72740) & (0.29690, 0.24354) & -11 \\
-\text{Model [1-7]} & (0.78119, 0.71965) & (0.39920, 0.32163) & -12 \\
-\text{Model [1-6]} & (0.80448, 0.75166) & (0.24650, 0.19516) & -13 \\
-\text{Model [1-5]} & (0.85119, 0.79530) & (0.39890, 0.32221) & -14 \\
-\text{Model [1-4]} & (0.87493, 0.82954) & (0.18935, 0.14127) & -15 \\
-\text{Model [1-3]} & (0.82194, 0.76370) & (0.19300, 0.13079) & -16 \\
-\text{Model [1-2]} & (0.77567, 0.71621) & (0.18550, 0.14802) & -17 \\
-\text{Model [1]} & (0.65090, 0.58423) & (0.32005, 0.20508) & -18 \\
-\hline
-\end{array}
-
-To reproduce these results, modify the first cell of the notebook to match the configuration parameters specified above.
 
