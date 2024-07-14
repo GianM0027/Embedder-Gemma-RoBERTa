@@ -6,6 +6,9 @@ This repository hosts the project work for the Data Mining, Text Mining, and Big
 
  We explored the possibility to enhance training efficiency and model performance in text classification tasks. The methodology and performance metrics are derived from the MTEB framework, with results compared against other models on the [MTEB leaderboard](https://huggingface.co/spaces/mteb/leaderboard).
 
+AGGIUNGERE CHE ABBIAMO APPROFONDITO SCOPO E CREZIONE DEGLI AMBEDDING. ABBIAMO ANCHE ANALIZZATO IL CODICE SORGENTE DI MTEB PER CAPIRE COME FUNZIONAVA (descrivere come avviene la valutazione degli embedding) ******
+
+
 ### Key Features
 - Utilizes `Gemma`, a large language model, to generate deep contextual embeddings.
 - Adapts embeddings to fit the input requirements of the `RoBERTa` small language model through a specialized feed-forward layer.
