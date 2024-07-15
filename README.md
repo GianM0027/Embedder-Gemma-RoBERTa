@@ -4,10 +4,7 @@ This repository hosts the project work for the Data Mining, Text Mining, and Big
 
 ## Project Overview
 
- We explored the possibility to enhance training efficiency and model performance in text classification tasks. The methodology and performance metrics are derived from the MTEB framework, with results compared against other models on the [MTEB leaderboard](https://huggingface.co/spaces/mteb/leaderboard).
-
-AGGIUNGERE CHE ABBIAMO APPROFONDITO SCOPO E CREZIONE DEGLI AMBEDDING. ABBIAMO ANCHE ANALIZZATO IL CODICE SORGENTE DI MTEB PER CAPIRE COME FUNZIONAVA (descrivere come avviene la valutazione degli embedding) ******
-
+We delved into the purpose and creation of embeddings, analyzing the source code of the MTEB framework to understand its functionality. Moreover, we explored the possibility of enhancing training efficiency and model performance in text classification tasks. The methodology and performance metrics are derived from the MTEB framework, with results compared against other models on the [MTEB leaderboard](https://huggingface.co/spaces/mteb/leaderboard).
 
 ### Key Features
 - Utilizes `Gemma`, a large language model, to generate deep contextual embeddings.
@@ -20,7 +17,7 @@ Follow these steps to set up and execute the project notebooks on Kaggle.
 
 ### Prerequisites
 - Access to a Kaggle account.
-- An API token from Hugging Face to access model APIs.
+- An API token from Hugging Face to access model APIs, along with the permission for using `google/Gemma_2b` and `roberta-base`.
 
 ### Setup Instructions
 
@@ -49,41 +46,16 @@ Execute the experiments by following these steps:
    - Execute all notebook cells, ensuring each one completes successfully to validate the results.
 
 3. **Interpret Results**
-   - The notebook outputs performance metrics including accuracy and F1 scores, which are essential for assessing the effectiveness of the embedding strategies against MTEB leaderboard entries.
+   - The notebook's last cell outputs performance metrics including accuracy and F1 scores.
 
 ## Results
 
 An extensive set of experiments has been conducted on two datasets:
 
-1. **Amazon Counterfactual Classification**: a binary classification task.
-2. **Emotion Classification**: a multilabel (6 labels) classification task.
+1. **Amazon Counterfactual Classification**: A binary classification task.
+2. **Emotion Classification**: A multilabel (6 labels) classification task.
 
-These configurations were essential to ensure consistency and reproducibility of results across both datasets. Below are the performance metrics obtained for each model evaluated:
-
-| **Model**           | **Amazon Counterfactual Classification (Accuracy, F1)** | **Emotion Classification (Accuracy, F1)** | **Layer Number** |
-|---------------------|---------------------------------------------------------|-------------------------------------------|------------------|
-| Roberta-Only        | (0.92358, 0.88786)                                      | (0.84130, 0.79769)                        | -                |
-| Gemma-Only          | (0.65224, 0.59531)                                      | (0.28535, 0.24303)                        | -                |
-| Frankenstein   | (0.59567, 0.53944)                                      | (0.32005, 0.20509)                        | -1               |
-| Frankenstein        | (0.73567, 0.67447)                                      | (0.29070, 0.23099)                        | -2               |
-| Frankenstein        | (0.78910, 0.73468)                                      | (0.33010, 0.25578)                        | -3               |
-| Frankenstein         | (0.81881, 0.75857)                                      | (0.33950, 0.27807)                        | -4               |
-| Frankenstein        | (0.83522, 0.77633)                                      | (0.17060, 0.11551)                        | -5               |
-| Frankenstein        | (0.82284, 0.76580)                                      | (0.35050, 0.28033)                        | -6               |
-| Frankenstein         | (0.84746, 0.79004)                                      | (0.21150, 0.12383)                        | -7               |
-| Frankenstein         | (0.73687, 0.66874)                                      | (0.21770, 0.17535)                        | -8               |
-| Frankenstein         | (0.85896, 0.80996)                                      | (0.35980, 0.28138)                        | -9               |
-| Frankenstein          | (0.82060, 0.76040)                                      | (0.33605, 0.26878)                        | -10              |
-| Frankenstein          | (0.77179, 0.72740)                                      | (0.29690, 0.24354)                        | -11              |
-| Frankenstein          | (0.78119, 0.71965)                                      | (0.39920, 0.32163)                        | -12              |
-| Frankenstein          | (0.80448, 0.75166)                                      | (0.24650, 0.19516)                        | -13              |
-| Frankenstein         | (0.85119, 0.79530)                                      | (0.39890, 0.32221)                        | -14              |
-| Frankenstein          | (0.87493, 0.82954)                                      | (0.18935, 0.14127)                        | -15              |
-| Frankenstein          | (0.82194, 0.76370)                                      | (0.19300, 0.13079)                        | -16              |
-| Frankenstein          | (0.77567, 0.71621)                                      | (0.18550, 0.14802)                        | -17              |
-| Frankenstein           | (0.65090, 0.58423)                                      | (0.32005, 0.20508)                        | -18              |
-
-In this table, the 'Layer Number' column specifies from which layer the output of Gemma is being extracted. Negative numbers indicate the layer count starting from the topmost layer downward. The rows labeled 'Roberta-Only' and 'Gemma-Only' serve as baseline comparisons, demonstrating the performance of the standalone models without integration.
+A complete description of experiments and results can be found in the `Report.pdf` file.
 
 To reproduce these results, modify the first cell of the notebook to match the configuration parameters specified below:
 
@@ -93,4 +65,3 @@ To reproduce these results, modify the first cell of the notebook to match the c
 | Epochs         | 6                                        | 5                          |
 | Batch Size     | 8                                        | 32                         |
 | Learning Rate  | 1.00E-05                                 | 1.00E-05                   |
-
