@@ -1,6 +1,6 @@
 # Embedder Gemma-RoBERTa
 
-This repository hosts the project work for the Data Mining, Text Mining, and Big Data Analytics course. It centers on the development and evaluation of an embedding creation pipeline using a large language model (`gemma_2b_en`) attached to a small language model (`RoBERTa base`).
+This repository hosts the project work for the Data Mining, Text Mining, and Big Data Analytics course. It centers on the development and evaluation of an embedding creation pipeline using a large language model (`gemma_2b_en`) attached to a small language model (`roberta-base`).
 
 ## Project Overview
 
